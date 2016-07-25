@@ -1,0 +1,496 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<title>发布游记移动端</title>
+<style>
+* {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	border:none;
+	vertical-align: middle;
+	text-decoration: none;
+	outline: none;
+}
+html,body{
+	width:100%;	
+	height:100%;}
+.content {
+	width:98%;
+	height:100%;
+	margin:0 auto;
+	position: relative;
+}
+/*图片上传样式*/
+.imupload {
+	height:30%;
+	position: relative
+}
+#imgdiv {
+	width:100%;
+	height:100%;
+	margin: 0 auto;
+	overflow:hidden;
+}
+#imgdiv img{
+	width:100%;
+	max-width:100%}
+#imgShow {
+	width:100%;
+	max-width: 1160px;
+	cursor: move;
+	border:none;
+}
+#up_img {
+	width:99.9%;
+	display: block;
+	position:absolute;
+	top:0;
+	bottom:0;
+	cursor: pointer;
+	font-size:280px;
+	overflow:hidden;
+	right:0;
+}
+.changeimg{
+	width:70px !important; height:30px !important;
+	position:absolute !important;
+	right:30px !important; 
+	top:auto !important;
+	}
+.fakeup {
+	background:url(img/upload.gif) center center no-repeat;
+	background-size:contain;
+	position: absolute;	width:99.9%;
+	top:0;
+	right:0;
+	cursor:pointer;
+	bottom:0;
+}
+.sfakeup{width:70px ; height:30px;
+	opacity:1;background:url(img/change.png) no-repeat;
+	position:absolute;
+	right:30px; bottom:10px;
+	top:auto;
+}
+
+#j_title {
+	border: 1px solid #009dda;
+	font: normal 18px/58px "微软雅黑";
+	padding: 0 10px;
+	margin: 15px auto 45px;
+	color: #555;
+	height: 48px;
+	width:90%;
+	display: block;
+}
+.add_button, .add_button_show {
+	height: 35px;
+	position: relative
+}
+.add_ico img {
+	transition: all 0.6s;
+}
+.add_button_show .add_ico img {
+	transform: rotate(45deg);
+}
+.add_button ul {
+	visibility:hidden;
+}
+.add_button_show ul {
+	top: -2px;
+	left: 35px;
+	position: absolute;
+}
+.add_button_show ul i {
+	padding-right: 8px
+}
+.add_button_show ul a:hover {
+	cursor: pointer;
+	color: #FF8A00;
+}
+.add_button_show ul li {
+	padding-left: 20px;
+	display:inline-block;
+	position:relative;
+}
+.add_button_show ul li *{
+	vertical-align:middle;}
+#browse{
+	color:#333;
+	}
+#browse:visited{
+	color:#333}
+.add_button_show ul {
+	display: block
+}
+.add_buttontemp{
+	visibility:hidden;
+	}
+#word,#add_button,#seimagebox{
+	display:none;}
+.scimg{
+	position:absolute;
+	bottom:10px; right:120px;
+	z-index:385;
+	cursor:pointer}
+.hide{
+	display:none;}
+.contbox{
+	margin-top:10px;
+	margin-bottom:50px;
+	position:relative;}
+.word .article{
+	width:100%;
+	border:1px solid #D6D6D6}
+.word .article textarea{
+	width:97%;
+	margin:2%}
+.word .article .art_title{
+	text-align:right;
+	padding:15px;
+	border-bottom:1px solid #D6D6D6}
+	.savetext{
+		background:#FFA800;
+		color:#fff;
+		text-align:center;
+		cursor:pointer;
+		margin-left:15px;
+		padding:4px 16px;
+	}
+	.canceltext{
+		cursor:pointer;}
+	.edit_again{
+		cursor:pointer;
+		font-size:14px;
+		color:#FFA800;
+		}
+.seup_img{
+	cursor:pointer;
+	position:absolute;
+	/*opacity:0;*/
+	top:0;
+	left:20px}
+.seimage img{
+	width:100%;
+	max-width:100%;}
+.seimage .progress{
+	position:absolute;
+	top:0;
+	left:0;
+	z-index:5;}
+.seimage .progress img{
+	width:64px;}
+.ximg{
+	cursor:pointer;
+	color:#FF6600;
+	font-size:14px;}
+.savedraft{
+	width:49%;
+	text-align:center;
+	color:#888;
+	margin-top:20px;
+	padding:17px 0;
+	font:normal 18px "微软雅黑";
+	border:1px solid #bcbcbc;
+	border-right:none;
+	display:inline-block;}
+.savedraft:visited{
+	color:#888}
+.publish{text-align:center;width:49%;	border:1px solid #bcbcbc;	font:normal 18px "微软雅黑";	padding:17px 0;
+color:#eee;	margin-top:20px;	background:#ff6600;
+	display:inline-block;}
+.publish:visited{
+	color:#fff}
+.seupimg{
+	border:2px solid #CAFF54}
+	.hiddenstuff{
+		position:absolute;
+		visibility:hidden;
+		bottom:0;
+	}
+</style>
+</head>
+<script src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script> 
+	<script src="img/plupload.full.min.js"></script>
+<body>
+<div class="hiddenstuff"><li class="add_img_btn"> <img  src="img/addimg.png">  <a  id="browse" title="添加照片" href="javascript:;">添加照片</a>
+   </li></div>
+
+<div class="content">
+  <div class="imupload">
+  <div id="up_img"></div>
+    <div id="imgdiv">
+    <div></div>
+    </div>
+    <img class="scimg hide" src="img/sc.png">
+    <div class="fakeup"></div>
+       <!--<input type="file" id="up_img"   accept="image/jpeg,image/png,image/gif"  value="上传" />-->
+    </div>
+    
+  <input id="j_title" value="" placeholder="给您的帖子起一个响亮的名字" maxlength="48" type="text">
+  
+  <div class="add_button"> <a href="###" class="add_ico" title="添加"><img  src="img/add.png"></a>
+    <ul>
+      <li class="add_word_btn"> <a role="button" title="添加文字"><img  src="img/addtxt.png"><span>添加文字</span></a> </li>
+    </ul>
+  </div>
+  
+  <div id="word" class="word contbox">
+    <p class="hide"> <span class="wordhtml"></span> <a role="button" class="edit_again">编辑</a> </p>
+    <div class="article">
+     <div class="art_title">  <a role="button" class="cancel canceltext" title="取消">删除</a> <a role="button" class="save savetext" title="保存">保存</a> </div>
+      <div class="art_con">
+        <textarea rows="8"></textarea>
+      </div>
+    </div>
+  </div>
+  
+  <div id="seimagebox" class="seimage contbox">
+  
+    <span class="ximg">删除该图</span>
+  </div>
+  
+  
+  <div class="add_button add_buttontemp"> <a href="###" class="add_ico" title="添加"><img  src="img/add.png"></a>
+    <ul>
+      <li class="add_word_btn"> <a role="button" title="添加文字"> <img  src="img/addtxt.png"> <span>添加文字</span></a> </li>
+    </ul>
+  </div>
+     
+  <a class="savedraft" href="">保存草稿</a><a class="publish" href="">发布游记</a>
+</div>
+
+
+<script>
+$(document).on("change","#up_img",function(){
+var thisimg=this;
+var f = thisimg.files[0];
+var upsrc = window.URL.createObjectURL(f);
+$(thisimg).prevAll("#imgdiv").children("#imgShow").attr("src",upsrc);
+
+$(".scimg").removeClass("hide");
+$("#up_img").addClass("changeimg")
+	$(".fakeup").addClass("sfakeup")
+});
+
+
+$(document).on("click",".scimg",function(){
+$(this).addClass("hide");
+$("#imgdiv div").empty()
+$(".changeimg").removeClass("changeimg")
+$(".sfakeup").removeClass("sfakeup")
+ })
+ 
+ 
+$(document).on("click",".add_button .add_ico",function(){
+	$(this).parents(".add_button").find(".add_word_btn").after( $(".add_img_btn") );
+	$(this).parents(".add_button").siblings(".add_button_show").removeClass("add_button_show").addClass("add_button");
+	$(this).parents(".add_button").siblings(".add_button").find(".add_img_btn").remove();
+	$(this).parents(".add_button").addClass("add_button_show").removeClass("add_button");
+	})
+
+$(document).on("click",".add_button_show .add_ico",function(){
+	$(this).parents(".add_button_show").addClass("add_button").removeClass("add_button_show");
+	})
+
+
+
+$(document).on("click",".add_word_btn",function(){
+	var indexcon= $(".contbox").size();
+	var sid="con_"+indexcon;
+	var clonebox=$(this).parents(".add_button_show");
+	$("#word").clone().insertAfter(clonebox).attr("id","con_"+indexcon);
+	$("#add_button").clone().insertAfter("#"+sid).attr("id","btul")
+	$(".add_buttontemp").clone().insertAfter("#"+sid).attr({ class:"add_button", id: "btul" });
+	})
+
+
+$(document).on("click",".ximg",function(){
+	if($(this).parents(".seimage").next("#btul").find(".add_img_btn").length>0){
+		$(this).parents(".seimage").next("#btul").find(".add_img_btn").appendTo(".hiddenstuff");
+	$(this).parents(".seimage").next("#btul").remove();
+	$(this).parents(".seimage").remove();
+		}
+	else{		
+		$(this).parents(".seimage").next("#btul").remove();
+	$(this).parents(".seimage").remove();
+		}
+	
+	});
+
+$(document).on("click",".canceltext",function(){
+	if($(this).parents(".word").next("#btul").find(".add_img_btn").length>0){
+			$(this).parents(".word").next("#btul").find(".add_img_btn").appendTo(".hiddenstuff");
+	$(this).parents(".word").next("#btul").remove()
+	$(this).parents(".word").remove()
+		}
+	
+	else{
+	$(this).parents(".word").next("#btul").remove()
+	$(this).parents(".word").remove()
+	}
+	
+	})
+	
+$(document).on("click",".savetext",function(){
+	
+	//var wordtext=$(this).parents(".art_title").next(".art_con").children("textarea").val();
+		var wordtext=$(this).parents(".art_title").next(".art_con").children("textarea").val().replace(/\n/g,"<br/>");
+		
+		
+	if(wordtext.length==0)
+	{
+		
+		
+		
+		if($(this).parents(".word").next("#btul").find(".add_img_btn").length>0){
+			$(this).parents(".word").next("#btul").find(".add_img_btn").appendTo(".hiddenstuff");
+	$(this).parents(".word").next("#btul").remove()
+	$(this).parents(".word").remove()
+		}
+	
+	else{
+	$(this).parents(".word").next("#btul").remove()
+	$(this).parents(".word").remove()
+	}
+	
+	
+	
+		}
+	else{
+			$(this).parents(".article").prev("p").children(".wordhtml").html(wordtext);
+	$(this).parents(".article").prev("p").removeClass("hide");
+	$(this).parents(".article").addClass("hide")
+		
+		}
+	})
+
+$(document).on("click",".edit_again",function(){ 
+$(this).parents("p").addClass("hide");
+$(this).parents("p").next(".article").removeClass("hide")
+ })
+ 
+
+
+</script>
+
+<script>	
+	var uploader = new plupload.Uploader({ //实例化一个plupload上传对象
+		browse_button : 'browse',
+		url : 'upload.html',
+	//	flash_swf_url : 'js/Moxie.swf',
+//		silverlight_xap_url : 'js/Moxie.xap',
+//		filters: {
+//		  mime_types : [ //只允许上传图片文件
+//		    { title : "图片文件", extensions : "jpg,png" }
+//		  ]
+//		}
+	});
+	uploader.init(); //初始化
+//绑定文件添加进队列事件
+	uploader.bind('FilesAdded',function(uploader,files){
+		for(var i = 0, len = files.length; i<len; i++){
+			var file_name = files[i].name; //文件名
+					//构造html来更新UI
+			var html = '  <div id="file-' + files[i].id +'" class="seimage contbox"><p class="progress"><img src="img/loading.gif"></p><span class="ximg">删除该图</span></div> ';
+			$(html).insertAfter('.add_button_show');
+			!function(i){
+				previewImage(files[i],function(imgsrc){
+					$('#file-'+files[i].id).prepend('<img src="'+ imgsrc +'" />');
+					$(".add_buttontemp").clone().insertAfter('#file-'+files[i].id).attr({ class: "add_button", id: "btul" });
+					setTimeout("$('.progress').fadeOut('normal')",1500);
+				})
+		    }(i);
+		}
+	});
+	//plupload中为我们提供了mOxie对象
+	//有关mOxie的介绍和说明请看：https://github.com/moxiecode/moxie/wiki/API
+	//如果你不想了解那么多的话，那就照抄本示例的代码来得到预览的图片吧
+	function previewImage(file,callback){//file为plupload事件监听函数参数中的file对象,callback为预览图片准备完成的回调函数
+		if(!file || !/image\//.test(file.type)) return; //确保文件是图片
+		if(file.type=='image/gif'){//gif使用FileReader进行预览,因为mOxie.Image只支持jpg和png
+			var fr = new mOxie.FileReader();
+			fr.onload = function(){
+				callback(fr.result);
+				fr.destroy();
+				fr = null;
+			}
+			fr.readAsDataURL(file.getSource());
+		}else{ 
+			var preloader = new mOxie.Image();
+			preloader.onload = function() {
+			//	preloader.downsize( 300, 300 );//先压缩一下要预览的图片,宽300，高300
+				var imgsrc = preloader.type=='image/jpeg' ? preloader.getAsDataURL('image/jpeg',80) : preloader.getAsDataURL(); //得到图片src,实质为一个base64编码的数据
+				callback && callback(imgsrc); //callback传入的参数为预览图片的url
+				preloader.destroy();
+				preloader = null;
+			};
+			preloader.load( file.getSource() );
+		}	
+	}
+
+	</script>
+    
+    <script>	
+	var uploadercover = new plupload.Uploader({ //实例化一个plupload上传对象
+		browse_button : 'up_img',
+		url : 'upload.html',
+	//	flash_swf_url : 'js/Moxie.swf',
+//		silverlight_xap_url : 'js/Moxie.xap',
+//		filters: {
+//		  mime_types : [ //只允许上传图片文件
+//		    { title : "图片文件", extensions : "jpg,png" }
+//		  ]
+//		}
+	});
+	uploadercover.init(); //初始化
+//绑定文件添加进队列事件
+	uploadercover.bind('FilesAdded',function(uploadercover,files){
+		for(var i = 0, len = files.length; i<len; i++){
+			var file_name = files[i].name; //文件名
+			//构造html来更新UI
+			var html = '<div id="file-' + files[i].id +'" ></div> ';
+			$("#imgdiv div").replaceWith(html);
+			//$(html).appendTo('#imgdiv');
+			!function(i){
+				previewImage(files[i],function(imgsrc){
+					$('#file-'+files[i].id).prepend('<img src="'+ imgsrc +'" />');
+					$(".scimg").removeClass("hide");
+$("#up_img").addClass("changeimg")
+	$(".fakeup").addClass("sfakeup")
+				})
+		    }(i);
+		}
+	});
+	//plupload中为我们提供了mOxie对象
+	//有关mOxie的介绍和说明请看：https://github.com/moxiecode/moxie/wiki/API
+	//如果你不想了解那么多的话，那就照抄本示例的代码来得到预览的图片吧
+	function previewImage(file,callback){//file为plupload事件监听函数参数中的file对象,callback为预览图片准备完成的回调函数
+		if(!file || !/image\//.test(file.type)) return; //确保文件是图片
+		if(file.type=='image/gif'){//gif使用FileReader进行预览,因为mOxie.Image只支持jpg和png
+			var fr = new mOxie.FileReader();
+			fr.onload = function(){
+				callback(fr.result);
+				fr.destroy();
+				fr = null;
+			}
+			fr.readAsDataURL(file.getSource());
+		}else{
+			var preloader = new mOxie.Image();
+			preloader.onload = function() {
+			//	preloader.downsize( 300, 300 );//先压缩一下要预览的图片,宽300，高300
+				var imgsrc = preloader.type=='image/jpeg' ? preloader.getAsDataURL('image/jpeg',80) : preloader.getAsDataURL(); //得到图片src,实质为一个base64编码的数据
+				callback && callback(imgsrc); //callback传入的参数为预览图片的url
+				preloader.destroy();
+				preloader = null;
+			};
+			preloader.load( file.getSource() );
+		}	
+	}
+	</script>
+
+</body>
+</html>

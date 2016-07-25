@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Idesigncolors</title>
+<link href="style/css/layout.css" rel="stylesheet" type="text/css" />
+<link href="style/css/contact.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="style/js/jq.js"></script>
+<script type="text/javascript">
+// <![CDATA[
+jQuery(document).ready(function(){
+	$('#contactform').submit(function(){				  
+		var action = $(this).attr('action');
+		$.post(action, { 
+			name: $('#name').val(),
+			email: $('#email').val(),
+			company: $('#company').val(),
+			subject: $('#subject').val(),
+			message: $('#message').val()
+		},
+			function(data){
+				$('#contactform #submit').attr('disabled','');
+				$('.response').remove();
+				$('#contactform').before('<p class="response">'+data+'</p>');
+				$('.response').slideDown();
+				if(data=='Message sent!') $('#contactform').slideUp();
+			}
+		); 
+		return false;
+	});
+});
+// ]]>
+</script>
+<!--[if lte IE 6]>
+<script src="style/js/pngFix.js"></script>
+<script>
+DD_belatedPNG.fix('img, div, a, li');
+</script>
+<![endif]-->
+</head>
+<body>
+<img class="sun" src="style/img/sun.png" />
+<div class="main">
+<dl class="avatar">
+<dt><img src="style/img/avatar.gif" /></dt>
+<dd>Shittah</dd>
+<dd><a href="mailto:idesigncolors@gmail.com">idesigncolors@gmail.com</a></dd>
+</dl>
+<div class="header">
+<div class="logo">
+<a href="http://www.idesigncolors.com/"></a>
+</div>
+<ul class="nav">
+<li class="nav1"><a href="indexen.html">Home</a></li>
+<li class="nav2"><a href="portfolioen.html">Portfolio</a></li>
+<li class="current"><a href="contacten.html">Contact</a></li>
+</ul>
+</div>
+<div class="mail">
+<p>Pose a question, send greetings, report an error, say hello, cheer my work or criticize it — feel free to use the contactinfo. I’ll be happy to hear from you  :)
+</p>
+<!--
+<form action="contact.php" method="post" id="contactform">
+<table width="510">
+  <tr>
+    <td><label for="name">*Name:</label>
+<input name="name" class="text" id="name" /></td>
+    <td><label for="label2">*Your Email</label>
+<input id="email" name="email" class="text" /></td>
+  </tr>
+  <tr>
+    <td colspan="2"><label for="message">*Message</label>
+<textarea wrap="hard" id="message" name="message" rows="6" cols="56"></textarea></td>
+    </tr>
+  <tr>
+    <td align="right" colspan="2"><input class="button"  type="submit" value="Submit" /></td>
+    </tr>
+</table>
+</form>-->
+</div>
+<dl class="contactinfo">
+<dt>Contact info</dt>
+<dd><label>Email:</label> <a href="mailto:idesigncolors@gmail.com">idesigncolors@gmail.com</a></dd>
+<dd><label>Skype:</label> idesigncolors</dd>
+<dd><address>Living in Xi'an, Shaanxi Province, China</address></dd>
+</dl>
+<ul class="footer">
+<li><img src="style/img/opera.png" /></li>
+<li><img src="style/img/chrome.png" /></li>
+<li><img src="style/img/ff.png" /></li>
+<li><img src="style/img/ie.png" /></li>
+</ul>
+</div>
+</body>
+</html>

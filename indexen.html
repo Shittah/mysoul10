@@ -1,0 +1,112 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Idesigncolors</title>
+<link href="style/css/layout.css" rel="stylesheet" type="text/css" />
+<link href="style/css/index.css" rel="stylesheet" type="text/css" />
+<script src="style/js/jq.js" type="text/javascript"></script>
+<script src="style/js/jcarousel2c.js" type="text/javascript"></script>
+<script type="text/javascript">
+function mycarousel_initCallback(carousel)
+{
+// Disable autoscrolling if the user clicks the prev or next button.
+carousel.buttonNext.bind('click', function() {
+carousel.startAuto(0);
+});
+carousel.buttonPrev.bind('click', function() {
+carousel.startAuto(0);
+});
+// Pause autoscrolling if the user moves with the cursor over the clip.
+carousel.clip.hover(function() {
+carousel.stopAuto();
+}, function() {
+carousel.startAuto();
+});
+};
+jQuery(document).ready(function() {
+jQuery('#mycarousel').jcarousel({
+auto: 3,
+wrap: 'last',
+scroll: 1,
+initCallback: mycarousel_initCallback
+});
+});
+</script>
+<!--[if lte IE 6]>
+<script src="style/js/pngFix.js"></script>
+<script>
+DD_belatedPNG.fix('img, div, a');
+</script>
+<![endif]-->
+</head>
+<body>
+<img class="sun" src="style/img/sun.png" />
+<div class="main">
+<dl class="avatar">
+<dt><img src="style/img/avatar.gif" /></dt>
+<dd>Shittah</dd>
+<dd><a href="mailto:idesigncolors@gmail.com">idesigncolors@gmail.com</a></dd>
+</dl>
+<div class="header">
+<div class="logo">
+<a href="http://www.idesigncolors.com/"></a>
+</div>
+<ul class="nav">
+<li class="current"><a href="indexen.html">Home</a></li>
+<li class="nav2"><a href="portfolioen.html">Portfolio</a></li>
+<li class="nav3"><a href="contacten.html">Contact</a></li>
+</ul>
+</div>
+<img class="welcome" src="style/img/welcome.gif" />
+<div id="mycarousel" >
+<img class="playerbg" src="style/img/player.png" />
+<ul class="player">
+<li><img src="pic/show1.jpg"  /></li>
+<li><img src="pic/show2.jpg" /></li>
+<li><img src="pic/show3.jpg" /></li>
+<li><img src="pic/show4.jpg" /></li>
+<li><img src="pic/show5.jpg"/></li>
+</ul>
+</div>
+<div class="intro">
+<img src="style/img/idotted.png" />
+<p>Enjoy design,I'm a POST-80<br />
+a creative <font color="#bd2b74">Web,</font><font color="#205796">Graphic</font> designer<br />
+I offer the arts and services<br />
+I focus on <font color="#16849d">Color,</font> <font color="#ad770a">Composition,</font> <font color="#1f9c61">Standards</font><br />
+I interest in UI,Game,Painting too<br />
+I listen and think more than speak</p>
+</div>
+<ul class="service">
+<li><img src="style/img/oo.png" />
+<h4>Communication</h4>
+<p>
+Communication is the most 
+important part,whatever the 
+project is,this is part of the 
+service</p></li>
+<li><img src="style/img/design.png" />
+<h4>Design</h4>
+<p>
+Mix up Your idea 
+and my service,we 
+will get one colorful work</p></li>
+<li><img src="style/img/divaimg.png" />
+<h4>Slicing</h4>
+<p>
+Hand coded 
+XHTML/CSS&JS  
+and compliant
+with all major web 
+browsers</p></li>
+</ul>
+<ul class="footer">
+<li><img src="style/img/opera.png" /></li>
+<li><img src="style/img/chrome.png" /></li>
+<li><img src="style/img/ff.png" /></li>
+<li><img src="style/img/ie.png" /></li>
+</ul>
+</div>
+</body>
+</html>

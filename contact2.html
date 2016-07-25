@@ -1,0 +1,111 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Contact Me</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link href="style/css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="style/js/jq.js"></script>
+<script type="text/javascript">
+// <![CDATA[
+jQuery(document).ready(function(){
+	$('#contactform').submit(function(){				  
+		var action = $(this).attr('action');
+		$.post(action, { 
+			name: $('#name').val(),
+			email: $('#email').val(),
+			company: $('#company').val(),
+			subject: $('#subject').val(),
+			message: $('#message').val()
+		},
+			function(data){
+				$('#contactform #submit').attr('disabled','');
+				$('.response').remove();
+				$('#contactform').before('<p class="response">'+data+'</p>');
+				$('.response').slideDown();
+				if(data=='Message sent!') $('#contactform').slideUp();
+			}
+		); 
+		return false;
+	});
+});
+// ]]>
+</script>
+</head>
+<body>
+<div class="main">
+  <div class="body">
+    <div class="block_box">
+      <div class="block_box_t">
+        <div class="block_box_b">
+          <h1 class="contact">Contact Me</h1>
+          <div class="big_side">
+            <p><strong>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </strong></p>
+            <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. </p>
+            <h3>Contact form</h3>
+            <form action="contact.php" method="post" id="contactform">
+              <ol>
+                <li>
+                  <label for="name">First Name<span>Add your name</span></label>
+                  <input name="name" class="text" id="name" />
+                </li>
+                <li>
+                  <label for="label2">Your e-mail<span>Add a valid address</span></label>
+                  <input id="label2" name="name2" class="text" />
+                </li>
+                <li>
+                  <label for="email">Company Name<br />
+                  </label>
+                  <input id="email" name="email" class="text" />
+                </li>
+                <li>
+                  <label for="label">Subject<br />
+                  </label>
+                  <input id="label" name="email2" class="text" />
+                </li>
+                <li>
+                  <label for="message">Message<span>Add your message</span></label>
+                  <textarea id="message" name="message" rows="6" cols="50"></textarea>
+                </li>
+                <li class="buttons">
+                      <input type="image" name="imageField2" id="imageField2" src="style/img/but_send_message.gif" />
+                </li>
+              </ol>
+            </form>
+          </div>
+          <div class="center">
+            <h2>Contact info</h2>
+            <p class="spec">Customer Support</p>
+            <p>Lorem ipsum dolor sit amet, consectetuer <br />
+            adipiscing elit. Sed ut felis orci, ac semper justo.</p>
+            <p>111-222-4444<br />
+              <a href="mailto:support@example.com">support@example.com</a><br />
+              Monday-Friday 8am-8pm</p>
+            <p class="spec">Sales Enquiry</p>
+            <p>Lorem ipsum dolor sit amet, consectetuer <br />
+              adipiscing elit.</p>
+            <p>111-222-3333<br />
+              <a href="mailto:sales@example.com">sales@example.com</a><br />
+              Monday-Friday 8am-5pm</p>
+            <p><strong>Address:</strong> 1458 Sample Road, Greenvalley, 12<br />
+              <strong>Telephone: </strong>+123-1234-5678<br />
+              <strong>FAX:</strong> +458-4578<br />
+              <strong>Others:</strong> +301 - 0125 - 01258<br />
+            <strong>E-mail:</strong><a href="mailto:mail@yoursitename.com">mail@yoursitename.com</a></p>
+            <h2>&nbsp;</h2>
+          </div>
+          <div class="clr"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="footer_resize">
+      <p class="leftt"><a href="index.html"><img src="images/logo_f.png" alt="picture" width="249" height="71" border="0" /></a></p>
+      <p class="rightt">© Copyright Sitename.com. <a href="http://dreamtemplate.com/" class="no_border">dreamtemplate.com</a>. All Rights Reserved</p>
+      <div class="clr"></div>
+    </div>
+  </div>
+  <div class="clr"></div>
+</div>
+</body>
+</html>
