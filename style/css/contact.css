@@ -1,0 +1,62 @@
+.current a:first-letter{
+	color:#F0CC33}
+.mail{
+width:510px;
+padding-left:30px;
+float:left}
+.mail p{
+font-size:18px;
+line-height:26px;
+color:#524f3f}
+.mail td{
+padding-top:20px}
+.button{
+cursor:pointer;
+background:none;
+color:#50523f;
+margin-right:35px; margin-top:-10px;
+font:bold 26px "Palatino Linotype","Times New Roman", Times, serif}
+.button:hover{
+color:#782105}
+label{
+font-size:24px;
+color:#782105}
+.mail label{
+padding-bottom:8px;
+display:block}
+.text{
+font-size:14px;
+width:225px; height:16px;
+border:1px solid #a29977;
+vertical-align:middle;
+padding:5px 0;
+background:#fffbeb
+}
+textarea{
+overflow-y:auto;
+width:480px;
+border:1px solid #a29977;
+background:#fffbeb}
+.text:focus,textarea:focus{
+background:#fffdf7}
+.contactinfo{
+float:right; position:relative;
+display:inline; margin-right:30px;
+border:1px solid #a29977;
+width:380px; height:417px;
+background:url(../img/infocover.jpg) no-repeat}
+.contactinfo dt{
+padding:20px 0 10px 15px;
+line-height:0.8;
+color:#782105;
+font-size:26px}
+.contactinfo dd{
+vertical-align: baseline;
+padding-left:18px; padding-top:20px;
+color:#50523f;
+font-size:22px}
+.contactinfo address{
+position:absolute;
+bottom:15px; left:8px;
+font-size:15px;
+color:#807f73}

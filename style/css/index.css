@@ -1,0 +1,105 @@
+.current a:first-letter {
+color:#E26A00
+}
+.playerbg {
+z-index:5;
+position:absolute
+}
+.jcarousel-list {
+z-index: 1;
+overflow: hidden;
+position: relative;
+}
+.jcarousel-list li, .jcarousel-item {
+float: left;
+width:300px;
+height:180px
+}
+.jcarousel-prev {
+cursor:pointer;
+background: transparent url(../img/prev.png) no-repeat 0 0;
+position:absolute;
+width:20px;
+height:20px;
+left:110px;
+bottom:25px;
+z-index:8
+}
+.jcarousel-next {
+cursor:pointer;
+background: transparent url(../img/next.png) no-repeat 0 0;
+position:absolute;
+width:20px;
+height:20px;
+left:140px;
+bottom:25px;
+z-index:8
+}
+.jcarousel-clip {
+z-index:3;
+overflow:hidden;
+position:absolute;
+bottom:55px;
+right:24px;
+width:300px;
+height:180px
+}
+#mycarousel li img {
+width:300px;
+height:180px
+}
+.jcarousel-container {
+position:relative;
+width:344px;
+height:283px;
+float:left;
+padding:30px 0 0 80px
+}
+.jcarousel-next-horizontal:hover {
+background-position: -26px 0
+}
+.jcarousel-next-horizontal:active {
+background-position: -51px 0
+}
+.jcarousel-next-disabled-horizontal, .jcarousel-next-disabled-horizontal:hover, .jcarousel-next-disabled-horizontal:active {
+cursor: default;
+background-position: -77px 0
+}
+.jcarousel-prev-horizontal:hover {
+background-position: -26px 0
+}
+.jcarousel-prev-horizontal:active {
+background-position: -51px 0
+}
+.jcarousel-prev-disabled-horizontal, .jcarousel-prev-disabled-horizontal:hover, .jcarousel-prev-disabled-horizontal:active {
+cursor: default;
+background-position: -77px 0
+}
+.service {
+padding-top:40px;
+overflow:auto;
+clear:left
+}
+.service li {
+padding-left:5px;
+width:328px;
+float:left
+}
+.service li img {
+padding:10px 8px 0;
+float:left
+}
+.service li h4 {
+font-size:27px;
+color:#52523F;
+width:200px;
+font-weight:normal;
+float:left
+}
+.service li p {
+width:200px;
+color:#52523F;
+padding-left:10px;
+font-size:18px;
+float:left
+}

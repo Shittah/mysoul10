@@ -1,0 +1,117 @@
+*{
+margin:0;
+padding:0;
+list-style:none;
+border:none;
+_zoom:1;
+text-decoration:none}
+.clear{clear:both}
+a{color:#F23500}
+a:hover{color:#BD2B74}
+a,a:hover {
+outline: none;
+hlbr:expression(this.onFocus=this.blur());
+}
+html{
+zoom:1;
+padding:110px 0 40px;
+background:#EFE7BD url(../img/sea.gif) repeat-x left bottom}
+body{
+width:1000px;
+margin:0 auto;
+font-family:"Palatino Linotype","Times New Roman", Times, serif
+}
+.avatar{
+position:absolute;
+width:330px;
+top:-102px;left:20px}
+.avatar dt{
+float:left;
+height:90px; width:116px; overflow:hidden;
+border:2px solid #FFFFE7}
+.avatar dd{
+padding:2px 0 2px 8px;
+font-size:16px;
+color:#50523F;
+float:left}
+.main{
+position:relative;
+width:1000px;height:1125px;
+border:3px solid #FFFFE7;
+z-index:10;
+background:#C6B57A url(../img/bg.gif) no-repeat}
+.sun{
+float:right;
+margin-top:-140px;
+margin-right:-180px;
+*margin-bottom:-240px;
+z-index:-1
+}
+.header{
+padding-bottom:35px;
+}
+.logo{
+width:405px; height:158px;
+margin:25px 0 0 50px;
+overflow:auto;
+background:url(../img/logobg.png) no-repeat}
+.logo a{
+display:block;
+width:68px; height:102px;
+margin:32px 0 0 50px;
+background:url(../img/logoamotion.gif) no-repeat}
+.logo a:hover{
+background:url(../img/logoamotion.gif) no-repeat left bottom}
+.welcome{
+display:block;
+margin:35px 0 0 77px}
+.nav{
+padding-top:15px;
+height:70px;
+overflow:auto}
+.nav li{
+padding-left:20px;
+float:left}
+.nav li a{
+display:block;
+text-align:center;
+width:180px; height:68px;
+color:#fff4c9;
+font-size:26px; line-height:68px
+}
+.nav .nav1 a{
+background:url(../img/navbg1.png) no-repeat center center}
+.nav .nav2 a{
+background:url(../img/navbg2.png) no-repeat center center}
+.nav .nav3 a{
+background:url(../img/navbg3.png) no-repeat center center}
+.nav .nav4 a{
+background:url(../img/navbg3.png) no-repeat center center}
+.nav .current a,.nav li a:hover{
+color:#50523f;
+font-weight:bold;
+background:url(../img/navit.png) no-repeat
+}
+.intro{
+float:left;
+padding:0 0 0 45px;
+display:inline}
+.intro img{
+padding:0 8px;
+float:left}
+.intro p{
+padding-top:13px;
+float:left;
+color:#52523f;
+font-size:22px; line-height:42px
+}
+.footer{
+overflow:auto;
+width:1000px;
+position:absolute;
+bottom:0; left:0;
+padding:35px 0;
+background:url(../img/dotted.gif) left top repeat-x}
+.footer li{
+padding-right:30px;
+float:right}

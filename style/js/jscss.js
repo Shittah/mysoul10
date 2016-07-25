@@ -1,0 +1,1 @@
+document. write("<link href='style/css/portfolio.css' rel='stylesheet' type='text/css' />")
